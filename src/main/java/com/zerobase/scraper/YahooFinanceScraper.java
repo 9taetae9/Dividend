@@ -9,12 +9,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class YahooFinanceScraper implements Scraper {
     private static final String STATISTICS_URL = "https://finance.yahoo.com/quote/%s/history?period1=%d&period2=%d&interval=1mo";
     private static final long START_TIME = 86400; //60 * 60 * 24
@@ -64,7 +66,7 @@ public class YahooFinanceScraper implements Scraper {
 
                 System.out.println(year +"/"+ month+"/"+day+" -> "+ dividend);
             }
-            scrapResult.setDividendEntities(dividends);
+            scrapResult.setDividends(dividends);
 
         }catch (IOException e){
             e.printStackTrace();

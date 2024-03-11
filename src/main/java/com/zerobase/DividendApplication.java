@@ -1,6 +1,7 @@
 package com.zerobase;
 
 import com.zerobase.model.Company;
+import com.zerobase.scraper.Scraper;
 import com.zerobase.scraper.YahooFinanceScraper;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -12,14 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class DividendApplication {
 
     public static void main(String[] args) {
-//        SpringApplication.run(DividendApplication.class, args);
-        YahooFinanceScraper scraper = new YahooFinanceScraper();
-        var result = scraper.scrap(Company.builder().ticker("O").build());
-
-        System.out.println(result);
+        SpringApplication.run(DividendApplication.class, args);
     }
 }
